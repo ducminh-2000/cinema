@@ -1,6 +1,5 @@
 <div class="container" style="padding: 110px 0px;">
 <?php
-require_once 'helpers/Helper.php';
 ?>
 <h2>Chi tiết user</h2>
 <table class="table table-bordered">

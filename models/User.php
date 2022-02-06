@@ -6,11 +6,6 @@ class User extends Model {
     public $password;
     public $first_name;
     public $last_name;
-    public $phone;
-    public $address;
-    public $email;
-    public $avatar;
-    public $jobs;
     public $roleId;
     public $created_at;
     public $updated_at;
@@ -75,18 +70,13 @@ class User extends Model {
 
     public function insert() {
         $obj_insert = $this->connection
-            ->prepare("INSERT INTO users(username, password, first_name, last_name, phone, address, email, avatar, jobs, roleId)
-VALUES(:username, :password, :first_name, :last_name, :phone, :address, :email, :avatar, :jobs, :roleId)");
+            ->prepare("INSERT INTO users(username, password, first_name, last_name, roleId)
+VALUES(:username, :password, :first_name, :last_name, :roleId)");
         $arr_insert = [
             ':username' => $this->username,
             ':password' => $this->password,
             ':first_name' => $this->first_name,
             ':last_name' => $this->last_name,
-            ':phone' => $this->phone,
-            ':address' => $this->address,
-            ':email' => $this->email,
-            ':avatar' => $this->avatar,
-            ':jobs' => $this->jobs,
             ':roleId' => $this->roleId,
         ];
         return $obj_insert->execute($arr_insert);
@@ -94,17 +84,11 @@ VALUES(:username, :password, :first_name, :last_name, :phone, :address, :email, 
 
     public function update($id) {
         $obj_update = $this->connection
-            ->prepare("UPDATE users SET first_name=:first_name, last_name=:last_name, phone=:phone, 
-            address=:address, email=:email, avatar=:avatar, jobs=:jobs, roleId=:roleId, updated_at=:updated_at
+            ->prepare("UPDATE users SET first_name=:first_name, last_name=:last_name, roleId=:roleId, updated_at=:updated_at
              WHERE id = $id");
         $arr_update = [
             ':first_name' => $this->first_name,
             ':last_name' => $this->last_name,
-            ':phone' => $this->phone,
-            ':address' => $this->address,
-            ':email' => $this->email,
-            ':avatar' => $this->avatar,
-            ':jobs' => $this->jobs,
             ':roleId' => $this->roleId,
             ':updated_at' => $this->updated_at,
         ];

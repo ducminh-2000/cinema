@@ -71,7 +71,7 @@
                     <a href="index.php?controller=home" class="material-button submenu-toggle">Trang chủ</a>
                 </li>
                 <li>
-                    <a href="index.php?controller=movie&action=index" class="material-button submenu-toggle">Phim</a>
+                    <a href="index.php?controller=movie&action=showAll" class="material-button submenu-toggle">Phim</a>
                 </li>
                 <li>
                     <a href="index.php?controller=cart&action=index" class="material-button submenu-toggle">Giỏ hàng</a>
