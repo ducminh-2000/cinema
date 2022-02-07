@@ -69,7 +69,7 @@ thay vào đó sẽ dùng POST
                 </span>
 
                         <span data-id="<?php echo $movie['ticker_id'] ?>" class="add-to-cart">
-                        <a href="<?php echo $movie_cart_add ?>" style="color: inherit">Thêm vào giỏ</a>
+                        <a href="index.php?controller=home" style="color: inherit">Mua vé</a>
                     </span>
                     </div>
                 <?php endforeach; ?>

@@ -189,12 +189,22 @@ class MovieController extends Controller
         $movie_model = new Movie();
         $movie = $movie_model->getMovieById($id);
         //lấy nội dung view create.php
-        $this->content = $this->render('views/movies/detail.php', [
+       if($_SESSION['user']['roleId'] == 1){
+            $this->content = $this->render('views/movies/detail.php', [
+                'movie' => $movie
+            ]);
+            //gọi layout để nhúng nội dung view detail vừa lấy đc
+            require_once 'views/layouts/main.php';
+
+       }
+       else{
+        $this->content = $this->render('views/movies/detail_home.php', [
             'movie' => $movie
         ]);
         //gọi layout để nhúng nội dung view detail vừa lấy đc
-        require_once 'views/layouts/main.php';
+        require_once 'views/layouts/main_home.php';
 
+       }
     }
 
     public function showAll() {
